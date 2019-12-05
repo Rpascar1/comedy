@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'devise','~>4.4.0'
+gem 'devise','~>4.7.1'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'
 gem 'jquery-rails'

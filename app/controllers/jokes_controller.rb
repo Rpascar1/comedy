@@ -14,6 +14,7 @@ class JokesController < ApplicationController
   end
 
   def show
+
   end
 
   # def joke
@@ -24,14 +25,15 @@ class JokesController < ApplicationController
 #render plain: params[:joke].inspect
 
     @joke = Joke.new(joke_params)
-    @joke.save
-    redirect_to jokes_show(@joke)
+    # @joke.save
+    # redirect_to joke_path(@joke)
 
-    # if @joke.valid? && @joke.save
-    #   redirect_to joke_path(@joke)
-    # else
-    #   render :new
-    # end
+    if @joke.save
+      flash[:notice] = "Your comedy gold has been stored in the vault."
+      redirect_to joke_path(@joke)
+    else
+      render :new
+    end
   end
 
   def update

@@ -1,39 +1,32 @@
+# frozen_string_literal: true
+
 class JokesController < ApplicationController
 
-  before_action :set_joke, only: [:edit, :joke, :update, :destroy]
+before_action :set_joke, only: [:show, :update, :destroy, :edit]
+  def index
+    @jokes = Joke.all
+  end
 
   def new
     @joke = Joke.new
   end
 
-  def edit
-  end
-
-  def index
-    @jokes = Joke.all
-  end
-
-  def show
-
-  end
-
-  # def joke
-  #
-  # end
-
   def create
-#render plain: params[:joke].inspect
-
-    @joke = Joke.new(joke_params)
-    # @joke.save
-    # redirect_to joke_path(@joke)
-
+    @joke = current_user.jokes.build(joke_params)
     if @joke.save
-      flash[:notice] = "Your comedy gold has been stored in the vault."
+
+      flash[:notice] = 'Your comedy gold has been stored in the vault.'
       redirect_to joke_path(@joke)
     else
       render :new
     end
+  end
+
+  def show
+    @joke = current_user.jokes.find(params[:id])
+  end
+
+  def edit
   end
 
   def update
@@ -49,17 +42,13 @@ class JokesController < ApplicationController
     redirect_to jokes_path
   end
 
+  private
 
+  def set_joke
+    @joke = Joke.find_by(params[:id])
+  end
 
-private
-
-    def set_joke
-      @joke = Joke.find_by(params[:id])
-    end
-
-    def joke_params
-      params.require(:joke).permit(:topic, :body)
-    end
-
-
+  def joke_params
+    params.require(:joke).permit(:topic, :body)
+  end
 end

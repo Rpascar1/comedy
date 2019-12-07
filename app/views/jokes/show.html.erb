@@ -1,0 +1,17 @@
+<h1>Would you like to make it funnier? You should.</h1><br>
+
+<body>
+
+Name of Joke:<p><%= @joke.topic %></p>
+
+Joke body:<p><%= @joke.body %></p>
+
+</body>
+
+<% if @joke.errors.any? %>
+  <ul>
+<%   @joke.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+    <%end%>
+    </ul>
+  <%end%>

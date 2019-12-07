@@ -1,0 +1,28 @@
+<h1>edit page</h1>
+
+<% if @joke.errors.any? %>
+  <ul>
+<%   @joke.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+    <%end%>
+    </ul>
+  <%end%>
+
+<%= form_for @joke do |f| %>
+<p>
+  <%=f.label :topic%> <br>
+  <%=f.text_field :topic, size: "50X2"%> <br>
+  <br>
+  <%=f.label :body%> <br>
+  <%=f.text_area :body, size: "100x10"%>
+</p>
+<p>
+  <%= f.submit "Save joke to your Vault"%>
+</p>
+<% end %>
+
+<%= link_to "Delete", joke_path, method: :delete%> | <a href="/jokes">Go home </a><br>
+</br>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</form>

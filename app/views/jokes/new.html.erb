@@ -22,3 +22,10 @@
   <%= f.submit "Save joke to your Vault"%>
 </p>
 <% end %>
+
+
+<a href="/jokes">Go home </a><br>
+</br>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</form>

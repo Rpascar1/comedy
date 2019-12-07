@@ -41,6 +41,7 @@ class ShowsController < ApplicationController
       redirect_to shows_path
     end
 
+
     private
 
     def set_show

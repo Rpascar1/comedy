@@ -1,0 +1,16 @@
+<%= form_for @show do |f| %>
+<p>
+  <%=f.label :date%> <br>
+  <%=f.text_field :date, size: "50X2"%> <br>
+  <br>
+  <%=f.label :name%> <br>
+  <%=f.text_field :name, size: "50X2"%>
+
+  <%=f.label :club%> <br>
+  <%=f.collection_select :club_id, Club.all, :id, :name %>
+
+</p>
+<p>
+  <%= f.submit "Save show to your Vault"%>
+</p>
+<% end %>

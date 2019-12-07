@@ -1,0 +1,17 @@
+<h1>edit page</h1>
+
+<% if @show.errors.any? %>
+  <ul>
+<%   @show.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+    <%end%>
+    </ul>
+  <%end%>
+
+<%= render 'form' %>
+
+<%= link_to "Delete", show_path, method: :delete%> | <a href="/shows">Go home </a><br>
+</br>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</form>

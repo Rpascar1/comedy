@@ -1,0 +1,17 @@
+<h1>Would you like to make it funnier? You should.</h1><br>
+
+<body>
+
+Name of show:<p><%= @show.topic %></p>
+
+show body:<p><%= @show.body %></p>
+
+</body>
+
+<% if @show.errors.any? %>
+  <ul>
+<%   @show.errors.full_messages.each do |msg| %>
+  <li><%= msg %></li>
+    <%end%>
+    </ul>
+  <%end%>

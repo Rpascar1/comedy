@@ -1,56 +1,53 @@
 class ShowsController < ApplicationController
 
+  before_action :set_show, only: [:show, :update, :destroy, :edit]
 
-
-  before_action :set_show, only: [:edit, :show, :update, :destroy]
-  def new
-    @show = Show.new
-  end
-
-  def edit
-  end
-
-  def index
-    @shows = Show.all
-  end
-
-  def show
-
-  end
-
-  def create
-    @show = Show.new(show_params)
-    if @show.valid? && @show.save
-      redirect_to show_path(@show)
-    else
-      render :new
+    def index
+      @shows = Show.all
     end
-  end
 
-  def update
-    if @show.update(show_params)
-      redirect_to show_path(@show)
-    else
-      render :edit
+    def new
+      @show = Show.new
     end
-  end
 
-  def destroy
-    @show.destroy
-    redirect_to shows_path
-  end
+    def create
+      @show = current_user.shows.build(show_params)
+      if @show.save
 
+        flash[:notice] = 'Your Show has been stored in the vault.'
+        redirect_to show_path(@show)
+      else
+        render :new
+      end
+    end
 
+    def show
+      @show = current_user.shows.find(params[:id])
+    end
 
-private
+    def edit
+    end
+
+    def update
+      if @show.update(show_params)
+        redirect_to show_path(@show)
+      else
+        render :edit
+      end
+    end
+
+    def destroy
+      @show.destroy
+      redirect_to shows_path
+    end
+
+    private
 
     def set_show
       @show = Show.find_by(params[:id])
     end
 
     def show_params
-      params.require(:show).permit(:name,:released,:release_year,:artist_name,:genre)
+      params.require(:show).permit(:name, :date, :club_id)
     end
-
-
-end
+  end

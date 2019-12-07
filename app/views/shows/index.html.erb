@@ -1,1 +1,22 @@
-<h1>Shows index</h1>
+<h1>All shows in Vault</h1>
+<% @shows = current_user.shows %>
+  <% @shows.each do |show| %>
+    <div>
+      <label for="">show Name</label>
+      <%= show.name %><br>
+      <label for="">
+        <bdi dir="rtl"></bdi>date of show: :</label><%= show.date %><br>
+
+
+      <a href="/shows/<%= show.id %>/edit">Edit or Delete show<br></a>
+      <label for="">-------------------------</label><br>
+
+    </div>
+  <% end %>
+  <a href="/shows/new">
+    Create show
+  </a><br>
+  <br>
+
+  <a href="/">homepage</a><br>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>

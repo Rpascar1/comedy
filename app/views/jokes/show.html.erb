@@ -2,11 +2,13 @@
 
 <body>
 
-Name of Joke:<p><%= @joke.topic %></p>
+Title of Joke:<p><%= @joke.topic %></p>
 
 Joke body:<p><%= @joke.body %></p>
 
 </body>
+
+    <a href="/jokes/<%= @joke.id %>/edit">Edit or Delete Joke<br></a>
 
 <% if @joke.errors.any? %>
   <ul>

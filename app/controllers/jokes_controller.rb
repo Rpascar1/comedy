@@ -2,7 +2,7 @@
 
 class JokesController < ApplicationController
 
-before_action :set_joke, only: [:show, :update, :destroy, :edit]
+before_action :set_joke, only: [:show, :update, :destroy, :edit, :show]
   def index
     @jokes = Joke.all
   end

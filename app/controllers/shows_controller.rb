@@ -3,12 +3,21 @@ before_action :authenticate_user!, except: [:index]
   before_action :set_show, only: [:show, :update, :destroy, :edit]
 
     def index
-      if logged_in?
-      @shows = current_user.shows
+      if params[:club_id]
+        if logged_in?
+          @shows = current_user.shows.filter_by_club(params[:club_id])
+        else
+        @shows = Show.all.filter_by_club(params[:club_id])
+        end
       else
+        if logged_in?
+          @shows = current_user.shows
+        else
         @shows = Show.all
-      end
-    end
+        end
+       end
+  end
+
 
     def new
       @show = Show.new

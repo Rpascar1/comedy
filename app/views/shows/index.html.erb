@@ -1,7 +1,21 @@
+
+
+<%= form_tag('/shows', method: 'get') do %>
+
+<%= select_tag('club_id', options_from_collection_for_select(Club.all, :id, :name), prompt: "Filter Shows by Club" ) %>
+<%= submit_tag "Sort" %>
+
+<% end %>
+
 <% if user_signed_in? %>
+
 <h1>All your upcoming shows in the Vault</h1>
 
+
   <% @shows.each do |show| %>
+
+
+
     <div>
       <label for="">Venue Name</label>
       <%= show.club.name %><br>
@@ -27,7 +41,7 @@
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
   <%else%>
-  <% @shows = Show.all %>
+
     <% @shows.each do |show| %>
       <div>
         <%= show.club.name %><br> Presents<br>

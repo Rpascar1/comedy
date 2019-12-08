@@ -5,9 +5,7 @@ before_action :authenticate_user!, only:[:index,:new,:edit,:update,:destroy,:sho
 before_action :set_joke, only: [:show, :update, :destroy, :edit]
 before_action :require_user, only:[:new,:edit,:update,:destroy,:show]
   def index
-
     @jokes = current_user.jokes
-
   end
 
   def new
@@ -30,11 +28,10 @@ before_action :require_user, only:[:new,:edit,:update,:destroy,:show]
   end
 
   def edit
-    
+
   end
 
   def update
-
     if @joke.update(joke_params)
       redirect_to joke_path(@joke)
     else
@@ -50,9 +47,7 @@ before_action :require_user, only:[:new,:edit,:update,:destroy,:show]
   private
 
   def set_joke
-
-    @joke = Joke.find_by(params[:id])
-
+    @joke = current_user.jokes.find_by_id(params[:id])
   end
 
   def joke_params

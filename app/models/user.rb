@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+
   has_many :jokes
   has_many :shows
   has_many :clubs, through: :shows
@@ -16,7 +17,7 @@ class User < ApplicationRecord
         user.email = data['email'] if user.email.blank?
       end
     end
-end
+  end
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -26,4 +27,5 @@ end
       user.image = auth.info.image # assuming the user model has an image
     end
   end
+
 end

@@ -2,16 +2,17 @@
 
 <% if @joke.errors.any? %>
   <ul>
-<%   @joke.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
+    <%@joke.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <%end%>
-    </ul>
-  <%end%>
+  </ul>
+<%end%>
 
 <%= render 'form' %>
 
-<%= link_to "Delete", joke_path, method: :delete%> | <a href="/jokes">Go home </a><br>
-<a href="/jokes">Go home </a><br>
-</br>
+<p><%= link_to "Delete", joke_path, method: :delete%>
+|
+<a href="/jokes">Go home</a></p>
 
+<br>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>

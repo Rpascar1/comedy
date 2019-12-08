@@ -1,20 +1,15 @@
-<h1></h1><br>
-
+<h1>The Club</h1>
 <body>
 
-Name of club:<p><%= @club.date %></p>
-
-club body:<p><%= @club.name %></p>
-
-Venue :<p><%= @club.club.name %></p>
-<p><%= @club.club.address %></p>
+  Venue :<p><%= @club.name %></p>
+  <p><%= @club.address %></p>
 
 </body>
 
 <% if @club.errors.any? %>
   <ul>
-<%   @club.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
+    <%   @club.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <%end%>
-    </ul>
-  <%end%>
+  </ul>
+<%end%>

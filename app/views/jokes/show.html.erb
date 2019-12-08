@@ -2,18 +2,19 @@
 
 <body>
 
-Title of Joke:<p><%= @joke.topic %></p>
+  Title of Joke:<p><%= @joke.topic %></p>
 
-Joke body:<p><%= @joke.body %></p>
+  Joke body:<p><%= @joke.body %></p>
 
 </body>
 
-    <a href="/jokes/<%= @joke.id %>/edit">Edit or Delete Joke<br></a>
+<a href="/jokes/<%= @joke.id %>/edit">Edit or Delete Joke<br></a><br>
+<a href="/jokes">Go back to the Vault</a></p>
 
 <% if @joke.errors.any? %>
   <ul>
-<%   @joke.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
+    <% @joke.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
     <%end%>
-    </ul>
-  <%end%>
+  </ul>
+<%end%>

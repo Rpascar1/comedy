@@ -1,19 +1,15 @@
-<h1>All clubs in Vault</h1>
+<h1>All of our Vault affiliated clubs</h1>
 
+<% @clubs.each do |club| %>
+  <div>
+    <%= link_to club.name, club_shows_path(club) %><br>
+    Location:
+    <%= club.address %><br>
+    <label for="">-------------------------</label><br>
+  </div>
+<% end %>
+<br>
 
-  <% @clubs.each do |club| %>
-    <div>
+<a href="/">homepage</a><br>
 
-      <%= link_to club.name, club_shows_path(club) %> <br>
-      <label for="">
-        <bdi dir="rtl"></bdi>date of club: :</label><%= club.address %><br>
-
-      <label for="">-------------------------</label><br>
-
-    </div>
-  <% end %>
-
-  <br>
-
-  <a href="/">homepage</a><br>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>

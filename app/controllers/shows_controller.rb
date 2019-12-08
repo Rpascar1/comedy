@@ -6,9 +6,8 @@ before_action :authenticate_user!, except: [:index]
       if params[:club_id]
         @shows = Club.find_by_id(params[:club_id]).shows
       else
-      @shows = Show.all
-    end
-
+        @shows = Show.all
+      end
     end
 
     def new
@@ -18,7 +17,6 @@ before_action :authenticate_user!, except: [:index]
     def create
       @show = current_user.shows.build(show_params)
       if @show.save
-
         flash[:notice] = 'Your Show has been stored in the vault.'
         redirect_to show_path(@show)
       else
@@ -56,4 +54,6 @@ before_action :authenticate_user!, except: [:index]
     def show_params
       params.require(:show).permit(:name, :date, :club_id)
     end
+
+
   end

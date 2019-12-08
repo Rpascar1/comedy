@@ -1,20 +1,18 @@
-
-
 <h2>Start writing joke</h2>
 
 <% if @joke.errors.any? %>
   <ul>
-<%   @joke.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
+    <% @joke.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
     <%end%>
-    </ul>
-  <%end%>
+  </ul>
+<%end%>
 
 <%= render 'form' %>
 
-
-<a href="/jokes">Go home </a><br>
-</br>
+<a href="/jokes">Go home
+</a>
+<br></br>
 
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </form>

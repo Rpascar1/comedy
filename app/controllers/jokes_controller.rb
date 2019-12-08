@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 class JokesController < ApplicationController
-
-before_action :set_joke, only: [:show, :update, :destroy, :edit, :show]
-
+before_action :authenticate_user!, only:[:index,:new,:edit,:update,:destroy,:show]
+before_action :set_joke, only: [:show, :update, :destroy, :edit]
+before_action :require_user, only:[:new,:edit,:update,:destroy,:show]
   def index
     @jokes = current_user.jokes
-    # @jokes = Joke.all
   end
 
   def new
@@ -25,10 +24,11 @@ before_action :set_joke, only: [:show, :update, :destroy, :edit, :show]
   end
 
   def show
-    @joke = current_user.jokes.find(params[:id])
+
   end
 
   def edit
+
   end
 
   def update
@@ -53,4 +53,5 @@ before_action :set_joke, only: [:show, :update, :destroy, :edit, :show]
   def joke_params
     params.require(:joke).permit(:topic, :body)
   end
+
 end

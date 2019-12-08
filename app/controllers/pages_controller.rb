@@ -1,8 +1,7 @@
 class PagesController < ApplicationController
-  def home
-  end
 
-  def all_shows
+  def home
+
   end
 
 end

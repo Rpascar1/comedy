@@ -16,3 +16,17 @@ clubs = Club.create([{ name: 'The Comedy Cellar', address: "117 Macdougal St #12
                      { name: 'Zanies', address: "2025 8th Avenue, South Nashiville, TN 37204" },
                      { name: 'Acme Comedy Co.', address: "708 North 1st Street, Minneapolis, MN 55401" },
                      { name: 'Cap City Comedy', address: "8120 Research Blvd Suite 100, Austin, TX 78758" }])
+
+
+                     User.create(email: "user1@email.com" , password: 'password')
+                     User.create(email: "user2@email.com" , password: 'password')
+                     User.create(email: "user3@email.com" , password: 'password')
+                     User.all.each do |user|
+                       10.times do
+                         user.jokes.create(topic: Faker::Hipster.word, body: Faker::Hipster.sentence)
+                        end
+                         10.times do
+                           user.shows.create(date: Faker::Date.forward(days: 23) , name: Faker::Space.galaxy, club_id: Club.all.sample.id)
+
+                       end
+                     end

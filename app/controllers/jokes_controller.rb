@@ -3,8 +3,10 @@
 class JokesController < ApplicationController
 
 before_action :set_joke, only: [:show, :update, :destroy, :edit, :show]
+
   def index
-    @jokes = Joke.all
+    @jokes = current_user.jokes
+    # @jokes = Joke.all
   end
 
   def new

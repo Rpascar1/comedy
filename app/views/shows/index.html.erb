@@ -1,10 +1,14 @@
+<% if user_signed_in? %>
 <h1>All your upcoming shows in the Vault</h1>
 
-<% @shows = current_user.shows %>
   <% @shows.each do |show| %>
     <div>
+      <label for="">Venue Name</label>
+      <%= show.club.name %><br>
       <label for="">show Name</label>
       <%= show.name %><br>
+      <label for="">Comedian Name</label>
+      <%= show.user.email %><br>
       <label for="">
         <bdi dir="rtl"></bdi>date of show: :</label><%= show.date %><br>
 
@@ -21,3 +25,16 @@
 
   <a href="/">homepage</a><br>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+  <%else%>
+  <% @shows = Show.all %>
+    <% @shows.each do |show| %>
+      <div>
+        <%= show.club.name %><br> Presents<br>
+        <%= show.user.email %> Performing <br>
+        <%= show.name %>
+
+        Show Date and time:<p><%= show.date.strftime ("%m/%d/%Y")%>, <%=show.date.strftime("%I:%M:%S %p") %>
+      </div>
+    <% end %>
+<% end %>

@@ -1,9 +1,14 @@
 class ShowsController < ApplicationController
-
+before_action :authenticate_user!, except: [:index]
   before_action :set_show, only: [:show, :update, :destroy, :edit]
 
     def index
+      if params[:club_id]
+        @shows = Club.find_by_id(params[:club_id]).shows
+      else
       @shows = Show.all
+    end
+
     end
 
     def new

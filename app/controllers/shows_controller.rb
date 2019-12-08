@@ -1,5 +1,6 @@
 class ShowsController < ApplicationController
 before_action :authenticate_user!, except: [:index]
+#SET ECEPTION SO ALL SHOWS CAN BE VIEWED BY NON USERS
   before_action :set_show, only: [:show, :update, :destroy, :edit]
 
     def index
@@ -37,8 +38,9 @@ before_action :authenticate_user!, except: [:index]
       @show = current_user.shows.find(params[:id])
     end
 
-    def edit
-    end
+    # def edit
+    #EXITS IN ROUTE ONLY NEEDED TO RENDER VIEW NO LOGIC 
+    # end
 
     def update
       if @show.update(show_params)

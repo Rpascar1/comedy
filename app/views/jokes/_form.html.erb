@@ -1,4 +1,11 @@
 <%= form_for @joke do |f| %>
+<% if @joke.errors.any? %>
+  <ul>
+    <% @joke.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <%end%>
+  </ul>
+<%end%>
 <p>
   <%=f.label :topic%> <br>
   <%=f.text_field :topic, size: "50X2"%> <br>

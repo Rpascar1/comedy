@@ -1,12 +1,6 @@
 <h2>Start writing joke</h2>
 
-<% if @joke.errors.any? %>
-  <ul>
-    <% @joke.errors.full_messages.each do |msg| %>
-      <li> <%= msg %> </li>
-    <%end%>
-  </ul>
-<%end%>
+
 
 <%= render 'form' %>
 

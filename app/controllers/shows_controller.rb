@@ -3,8 +3,8 @@ before_action :authenticate_user!, except: [:index]
   before_action :set_show, only: [:show, :update, :destroy, :edit]
 
     def index
-      if params[:club_id]
-        @shows = Club.find_by_id(params[:club_id]).shows
+      if logged_in?
+      @shows = current_user.shows
       else
         @shows = Show.all
       end

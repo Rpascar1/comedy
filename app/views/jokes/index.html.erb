@@ -5,9 +5,10 @@
       <label for="">Joke Topic:</label>
       <%= joke.topic %><br>
       <label for="">
-        <bdi dir="rtl"></bdi>Body of joke: :</label><%= joke.body %><br>
+        <bdi dir="rt l"></bdi>Body of joke: :</label><%= joke.body %><br>
         <label for=""><%= joke.id %></label><br>
-
+        <label for=""><%= joke.user.name %></label><br>
+      <%#= link_to 'Edit or Delete Joke', edit_joke_path(joke) %>
       <a href="/jokes/<%= joke.id %>/edit">Edit or Delete Joke<br></a>
       <label for="">-------------------------</label><br>
 

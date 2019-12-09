@@ -1,14 +1,53 @@
 <h1>The Comedy Vault</h1>
 
 <% unless current_user %>
-<a href="/shows">See all upcoming shows and comedians at our affilated clubs</a><br>
-<%= link_to "affiliated clubs", clubs_path %> <br>
-<br>
-<a href="/users/sign_in">Login or create Vault account here</a><br>
-  <br><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+
+
+
+
+
 <% else %>
 <a href="/jokes">Enter your Joke vault.</a><br>
 <a href="/shows">Anounce a show, edit the details, or see all your upcoming events.</a><br>
 <%= link_to "affiliated clubs", clubs_path %> <br>
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% end %>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/grid.css">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Omnifood</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="row">
+
+  <%= image_tag "comedy_vault.png", :width => 150, :height => 150 %>
+        <ul class="main-nav">
+          <li><a href="/users/sign_in">Login | Sign up</a></li>
+          <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
+          <li><%= link_to "Clubs and cities", clubs_path %></li>
+          <li><a href="/shows">Upcoming Shows</li>
+        </ul>
+      </div>
+    </nav>
+    <div class="hero-text-box">
+      <h1>Say goodbye to small crowds.<br> Hello world.</h1>
+      <a class="btn btn-full" href="#">I’m Funny</a>
+      <a class="btn btn-ghost" href="#">Show me more </a>
+    </div>
+
+  </header>
+>
+
+
+</body>
+
+</html>

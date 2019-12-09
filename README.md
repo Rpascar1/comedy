@@ -1,24 +1,28 @@
-# README
-######
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Comedy - is the code name for The comedy Vault created with Rails 5
+####
+The comedy Vault is a that allows a user to generate a content hosting Website that stores jokes and makes announcements about upcoming shows featuring the comedian/user.
 
-* Ruby version
+User Creates an account
 
-* System dependencies
+User then is able CRUD jokes and shows.
 
-* Configuration
+Non users can view all shows at all clubs and sort by club.
 
-* Database creation
+View the "joke vault"
 
-* Database initialization
+Installation
 
-* How to run the test suite
+Clone the github repository
 
-* Services (job queues, cache servers, search engines, etc.)
+Install all required gems: bundle install
 
-* Deployment instructions
+Migrate the database: rake db:migrate
 
-* ...
+Seed Database (Optional): rake db:seed
+
+Initiate shotgun: rails s to start server
+
+Then visit localhost:3000 to get started!
+
+Additionally - Jefferey Epstein did not kill himself.

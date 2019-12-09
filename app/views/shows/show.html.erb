@@ -11,8 +11,10 @@ Show Name:<p><%= @show.name %></p>
 Venue :<p><%= @show.club.name %> <br>
 <%= @show.club.address %></p>
 
-</body>
-
+<a href="/">Your Vault homepage</a><br>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</body><br>
+#
 <% if @show.errors.any? %>
   <ul>
 <%   @show.errors.full_messages.each do |msg| %>

@@ -1,14 +1,15 @@
-<a href="/">Your Vault homepage</a><br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
-<%= form_tag('/shows', method: 'get') do %> 
+
+<%= form_tag('/shows', method: 'get') do %>
 
 <%= select_tag('club_id', options_from_collection_for_select(Club.all, :id, :name), prompt: "Filter Shows by Club" ) %>
-<%= submit_tag "Sort" %>
+<%= submit_tag "Sort" %> | <a href="/">homepage </a>|<br>
 
 <% end %>
 
 <% if user_signed_in? %>
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
 
 <h1>All your upcoming shows in the Vault</h1>
 
@@ -38,10 +39,11 @@
   </a><br>
   <br>
 
-  <a href="/">Your Vault homepage</a><br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+
 
   <%else%>
+
 
     <% @shows.each do |show| %>
       <div>
@@ -51,6 +53,7 @@
 
         Show Date and time:<p><%= show.date.strftime ("%m/%d/%Y")%>, <%=show.date.strftime("%I:%M:%S %p") %>
       </div>
+
     <% end %>
 
 <% end %>

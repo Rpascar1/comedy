@@ -5,11 +5,13 @@ Rails.application.routes.draw do
   #get 'all_shows', to: 'pages#all_shows'
 
   resources :users
-  resources :shows
-  
+
+
   resources :clubs do
     resources :shows
   end
+
+  resources :shows
 
   resources :jokes
 

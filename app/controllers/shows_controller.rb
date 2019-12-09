@@ -21,7 +21,11 @@ before_action :authenticate_user!, except: [:index]
 
 
     def new
-      @show = Show.new
+      if @club = Club.find_by_id(params[:club_id])
+          @show = @club.shows.build
+        else
+          @show = Show.new
+      end
     end
 
     def create
@@ -39,7 +43,7 @@ before_action :authenticate_user!, except: [:index]
     end
 
     # def edit
-    #EXITS IN ROUTE ONLY NEEDED TO RENDER VIEW NO LOGIC 
+    #EXITS IN ROUTE ONLY NEEDED TO RENDER VIEW NO LOGIC
     # end
 
     def update

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/normalize.css">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/grid.css">
+  <link rel="stylesheet" type="text/css" href="assets/stylesheets/users.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>The Comedy Vault</title>
+</head>
+  <body>
+
+
+
+<a href="/jokes">Enter your Joke vault.</a><br>
+<a href="/shows">Anounce a show, edit the details, or see all your upcoming events.</a><br>
+<%= link_to "affiliated clubs", clubs_path %> <br>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+
+
+</body>
+</html>

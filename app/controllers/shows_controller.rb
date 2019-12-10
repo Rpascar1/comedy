@@ -1,6 +1,6 @@
 class ShowsController < ApplicationController
 before_action :authenticate_user!, except: [:index]
-#SET ECEPTION SO ALL SHOWS CAN BE VIEWED BY NON USERS
+#SET EXCEPTION SO ALL SHOWS CAN BE VIEWED BY NON USERS
   before_action :set_show, only: [:show, :update, :destroy, :edit]
 
     def index

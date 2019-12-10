@@ -1,19 +1,3 @@
-<h1>The Comedy Vault</h1>
-
-<% unless current_user %>
-
-
-
-
-
-<% else %>
-<a href="/jokes">Enter your Joke vault.</a><br>
-<a href="/shows">Anounce a show, edit the details, or see all your upcoming events.</a><br>
-<%= link_to "affiliated clubs", clubs_path %> <br>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% end %>
-
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
 
 <head>
@@ -34,7 +18,7 @@
           <li><a href="/users/sign_in">Login | Sign up</a></li>
           <li><%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %></li>
           <li><%= link_to "Clubs and cities", clubs_path %></li>
-          <li><a href="/shows">Upcoming Shows</li>
+          <li><a href="/shows">Upcoming Shows</a></li>
         </ul>
       </div>
     </nav>

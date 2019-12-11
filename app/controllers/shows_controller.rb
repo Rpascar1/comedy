@@ -6,6 +6,7 @@ before_action :authenticate_user!, except: [:index]
     def index
       if params[:club_id]
         if logged_in?
+          @club = Club.find_by_id(params[:club_id])
           @shows = current_user.shows.filter_by_club(params[:club_id])
         else
         @shows = Show.all.filter_by_club(params[:club_id])
@@ -18,7 +19,6 @@ before_action :authenticate_user!, except: [:index]
         end
        end
   end
-
 
     def new
       if @club = Club.find_by_id(params[:club_id])
@@ -47,12 +47,15 @@ before_action :authenticate_user!, except: [:index]
     # end
 
     def update
-      if @show.update(show_params)
+      if @show.user_id = current_user.id
+        if @show.update(show_params)
         redirect_to show_path(@show)
-      else
+            end
+        else
         render :edit
-      end
+
     end
+  end
 
     def destroy
       @show.destroy

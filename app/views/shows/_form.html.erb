@@ -11,8 +11,8 @@
   <%=f.label :name%>
   <br>
   <%=f.text_field :name, size: "50X2"%>
-
-  <% if params[:club_id] && params[:user_id] %>
+    
+  <% if params[:club_id] %>
 
     <%= f.hidden_field :club_id %>
 

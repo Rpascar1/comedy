@@ -5,6 +5,7 @@
 <%= select_tag('club_id', options_from_collection_for_select(Club.all, :id, :name), prompt: "Filter Shows by Club" ) %>
 <%= submit_tag "Sort" %> | <a href="/">homepage </a>|<br>
 
+
 <% end %>
 
 <% if user_signed_in? %>
@@ -34,8 +35,11 @@
 
     </div>
   <% end %>
-  <a href="/shows/new">
-    Create show
+    <% if params[:club_id]%>
+    <%= link_to "Create Show", new_club_show_path(@club) %>
+    <% else %>
+    <%= link_to "Create Show", new_show_path %>
+      <% end %>
   </a><br>
   <br>
 

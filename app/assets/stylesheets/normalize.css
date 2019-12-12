@@ -13,6 +13,7 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+
 /* Sections
    ========================================================================== */
 
@@ -21,7 +22,9 @@ html {
  */
 
 body {
+  background-color:#121212;
   margin: 0;
+
 }
 
 /**
@@ -72,10 +75,26 @@ pre {
 /**
  * Remove the gray background on active links in IE 10.
  */
+ a {
+   background-color: transparent;
+ }
 
-a {
-  background-color: transparent;
-}
+ a:link{
+   color:white;
+ }
+ a:visited{
+   color:white;
+ }
+ a:hover{
+   color:white;
+ }
+ a:focus{
+   color:white;
+ }
+ a:active{
+   color:white;
+ }
+
 
 /**
  * 1. Remove the bottom border in Chrome 57-

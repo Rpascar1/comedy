@@ -1,6 +1,9 @@
-<h1></h1><br>
-
+<%= link_to "Home Page", root_path%> | <%= link_to "User Home", user_path(current_user.id)%> | <%=link_to "All Shows", shows_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <body>
+  <p>
+<h1>Show was booked!</h1><br>
+</p>
+
 
 Show Date and time:<p><%= @show.date.strftime ("%m/%d/%Y")%>, <%=@show.date.strftime("%I:%M:%S %p") %> </p>
 
@@ -11,10 +14,8 @@ Show Name:<p><%= @show.name %></p>
 Venue :<p><%= @show.club.name %> <br>
 <%= @show.club.address %></p>
 
-<a href="/">Your Vault homepage</a><br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 </body><br>
-#
+
 <% if @show.errors.any? %>
   <ul>
 <%   @show.errors.full_messages.each do |msg| %>

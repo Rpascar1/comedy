@@ -37,6 +37,9 @@ h1{
   letter-spacing: 1px;
   word-spacing: 4px;
 }
+h4{
+  color:#fff
+}
 
 /* ------------------------------------------------------------- */
 /* Buttons */
@@ -133,4 +136,10 @@ margin-top: 20px;
 .main-nav li a:hover,
 .main-nav li a:active {
   border-bottom: 2px solid #fff;
+}
+
+input[type="text"], textarea {
+
+  background-color : #d1d1d1;
+
 }

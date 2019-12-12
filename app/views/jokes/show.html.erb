@@ -1,15 +1,22 @@
-<h1>Would you like to make it funnier? You should.</h1><br>
+<%= link_to "Home Page", root_path%> | <%= link_to "User Home", user_path(current_user.id)%> | <%=link_to "Joke Vault", jokes_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
+</p><h1>Would you like to make it funnier? Maybe you should.</h1>
+
+<h4>Click edit below to make changes</h4>
+
+<br>
 <body>
+<p style="color:white">
+  Title of Joke:<%= @joke.topic %>
 
-  Title of Joke:<p><%= @joke.topic %></p>
+  Joke body:<%= @joke.body %>
 
-  Joke body:<p><%= @joke.body %></p>
+  </p>
 
 </body>
 
 <a href="/jokes/<%= @joke.id %>/edit">Edit or Delete Joke<br></a><br>
-<a href="/jokes">Go back to the Vault</a></p>
+<a href="/jokes">Back to Joke Vault</a></p>
 
 <% if @joke.errors.any? %>
   <ul>
@@ -21,3 +28,4 @@
 
 <a href="/">Your Vault homepage</a><br>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+</p>

@@ -1,12 +1,6 @@
+<%= link_to "Home Page", root_path%> | <%= link_to "User Home", user_path(current_user.id)%> | <%=link_to "Joke Vault", jokes_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <h2>Start writing joke</h2>
 
 
 
 <%= render 'form' %>
-
-<a href="/jokes">Go home
-</a>
-<br></br>
-
-<a href="/">Your Vault homepage</a><br>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>

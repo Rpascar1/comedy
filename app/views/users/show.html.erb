@@ -1,13 +1,20 @@
 
-<a href="/jokes">Enter your Joke vault.</a><br>
-<a href="/shows">Anounce a show, edit the details, or see all your upcoming events.</a><br>
-<%= link_to "affiliated clubs", clubs_path %> <br>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
+<%= link_to "Home Page", root_path%> | <%= link_to "Logout", destroy_user_session_path, method: :delete %> <br>
+
+<p><br>
+  <br>
+  <a href="/jokes">Enter your Joke vault.</a><br>
+  <a href="/shows">Anounce a show, edit the details, or see all your upcoming events.</a><br>
+  <%= link_to "affiliated clubs", clubs_path %> <br>
+</p>
+
 <style>
   body {
     background-image: url('https://upload.wikimedia.org/wikipedia/commons/8/87/WinonaSavingsBankVault.JPG');
     background-position: center;
     background-size: cover;
     height: 110vh;
+
   }
   </style>

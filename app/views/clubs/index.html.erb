@@ -1,7 +1,9 @@
 <h1>All of our Vault affiliated clubs</h1>
 
-<% if user_signed_in? %>
+<%= link_to "Home Page", root_path%> <% if user_signed_in? %> | <%= link_to "User Home", user_path(current_user.id)%> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
 <p>
+  <br>
 <%= "Click the name of a club to see and upcoming gigs you have there." %>
 </p>
 
@@ -13,9 +15,10 @@
     <label for="">-------------------------</label><br>
   </div>
 <% end %>
-<a href="/">Your Vault homepage</a><br>
+<%= link_to "User Home", user_path(current_user.id)%>
 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <%else%>
+<p>
 <% @clubs.each do |club| %>
   <div>
     <%= link_to club.name, club_shows_path(club) %><br>
@@ -24,5 +27,6 @@
     <label for="">-------------------------</label><br>
   </div>
 <% end %>
+</p>
 <%end%>
 <br>

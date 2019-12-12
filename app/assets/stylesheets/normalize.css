@@ -24,6 +24,7 @@ html {
 body {
   background-color:#121212;
   margin: 0;
+  color: #fff;
 
 }
 
@@ -86,7 +87,7 @@ pre {
    color:white;
  }
  a:hover{
-   color:white;
+   color:burlywood;
  }
  a:focus{
    color:white;
@@ -195,6 +196,8 @@ textarea {
 button,
 input { /* 1 */
   overflow: visible;
+  color: white;
+  background-color: black
 }
 
 /**
@@ -205,6 +208,7 @@ input { /* 1 */
 button,
 select { /* 1 */
   text-transform: none;
+  color:black;
 }
 
 /**
@@ -365,4 +369,14 @@ template {
 
 [hidden] {
   display: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  color: white;
+  background-color: black;
 }

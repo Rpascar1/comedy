@@ -9,14 +9,13 @@
 
 <% @clubs.each do |club| %>
   <div>
-    <%= link_to club.name, club_shows_path(club) %><br>
+    Club Name: <%= link_to club.name, club_shows_path(club) %><br>
     Location:
     <%= club.address %><br>
     <label for="">-------------------------</label><br>
   </div>
 <% end %>
-<%= link_to "User Home", user_path(current_user.id)%>
-<%= link_to "Logout", destroy_user_session_path, method: :delete %>
+
 <%else%>
 <p>
 <% @clubs.each do |club| %>

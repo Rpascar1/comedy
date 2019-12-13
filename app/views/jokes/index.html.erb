@@ -1,7 +1,9 @@
 <%= link_to "Home Page", root_path%> <% if user_signed_in? %> | <%= link_to "User Home", user_path(current_user.id)%> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <br>
 <br><h1>All Jokes in Vault</h1>
-<%= link_to "Create a joke", new_joke_path %>
+<p>
+<%= link_to "Create a new joke", new_joke_path %> <br>
+</p>
 
 <div>
   <% @jokes.each do |joke| %>
@@ -12,8 +14,8 @@
         <bdi dir="rt l"></bdi>Body of joke: :</label><%= joke.body %><br>
         <label for=""><%= joke.id %></label><br>
         <label for=""><%= joke.user.name %></label><br>
-      <%#= link_to 'Edit or Delete Joke', edit_joke_path(joke) %>
-      <a href="/jokes/<%= joke.id %>/edit">Edit or Delete Joke<br></a>
+      <%= link_to 'Edit or Delete Joke', edit_joke_path(joke) %> <br>
+
       <label for="">-------------------------</label><br>
 
 

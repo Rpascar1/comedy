@@ -1,21 +1,24 @@
 <%= form_for @show do |f| %>
+<% if @show.errors.any? %>
+  <ul>
+    <% @show.errors.full_messages.each do |msg| %>
+      <li> <%= msg %> </li>
+    <%end%>
+  </ul>
+<%end%>
 <p>
 
   <%=f.label :date%><br>
-
   <%=f.date_field :date, size: "50X2"%>
   <br>
 
   <br>
-
   <%=f.label :name%>
   <br>
   <%=f.text_field :name, size: "50X2"%>
-    
+
   <% if params[:club_id] %>
-
     <%= f.hidden_field :club_id %>
-
   <% else %>
 
     <%=f.label :club%>

@@ -13,8 +13,12 @@
 
 
 <h1>All your upcoming shows in the Vault</h1>
-
-
+<p><% if @club %>
+<%= link_to "Create a new Show for this club", new_club_show_path(@club) %>
+<% else %>
+<%= link_to "Create a new Show", new_show_path %>
+  <% end %>
+</p>
   <% @shows.each do |show| %>
 
 
@@ -35,11 +39,7 @@
 
     </div>
   <% end %>
-    <% if @club %>
-    <%= link_to "Create Show", new_club_show_path(@club) %>
-    <% else %>
-    <%= link_to "Create Show", new_show_path %>
-      <% end %>
+
   </a><br>
   <br>
 

@@ -2,12 +2,5 @@
 <%= link_to "Home Page", root_path%> | <%= link_to "User Home", user_path(current_user.id)%> | <%=link_to "All Shows", shows_path %> | <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <h2>Start writing show</h2>
 
-<% if @show.errors.any? %>
-  <ul>
-<%   @show.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-    <%end%>
-    </ul>
-  <%end%>
 
 <%= render 'form' %>

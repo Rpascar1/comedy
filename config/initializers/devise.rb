@@ -7,12 +7,12 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'c385010dcdc8f38e5b629535a4215732d3e2d7c02c581d15241c0df60462e377e69b6a5d9b718e7583a2abff5f91e4d2859231bb897a096f5a609dc864ace330'
-config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'], callback_url: "http://localhost:3000/users/auth/facebook/callback"
+  config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"], callback_url: "http://localhost:3000/users/auth/facebook/callback"
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
+  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -24,7 +24,7 @@ config.omniauth :facebook, ENV['APP_ID'], ENV['APP_SECRET'], callback_url: "http
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is

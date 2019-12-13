@@ -13,16 +13,14 @@
 
 
 <h1>All your upcoming shows in the Vault</h1>
-<p><% if @club %>
+<p> <% if @club %>
 <%= link_to "Create a new Show for this club", new_club_show_path(@club) %>
-<% else %>
+  <% else %>
 <%= link_to "Create a new Show", new_show_path %>
+  <% end %>
   <% end %>
 </p>
   <% @shows.each do |show| %>
-
-
-
     <div>
       <label for="">Venue Name</label>
       <%= show.club.name %><br>
@@ -33,22 +31,18 @@
       <label for="">
         <bdi dir="rtl"></bdi>date of show: :</label><%= show.date %><br>
 
-
       <a href="/shows/<%= show.id %>/edit">Edit or Delete show<br></a>
       <label for="">-------------------------</label><br>
-
     </div>
+
   <% end %>
 
-  </a><br>
   <br>
-
-
-
+  <br>
 
   <%else%>
 
-
+  <% if @club == false %>
     <% @shows.each do |show| %>
       <div>
         <%= show.club.name %><br> Presents<br>

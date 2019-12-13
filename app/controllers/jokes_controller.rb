@@ -14,7 +14,6 @@ class JokesController < ApplicationController
 
   def create
     @joke = current_user.jokes.build(joke_params)
-
     if @joke.save
       flash[:notice] = "Your comedy gold has been stored in the vault."
       redirect_to joke_path(@joke)
@@ -40,6 +39,7 @@ class JokesController < ApplicationController
 
   def set_joke
     @joke = current_user.jokes.find_by_id(params[:id])
+  
   end
 
   def joke_params
